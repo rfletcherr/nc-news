@@ -78,6 +78,7 @@ button:focus-visible {
 }
 .articles img {
   width: 200px;
+  border-radius: 15px;
 }
 
 .articles li {
