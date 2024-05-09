@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { ArticleCard } from "./ArticleCard";
+import { getArticles } from "../api";
 
 export const Articles = () => {
     const [articles, setArticles] = useState([]);
@@ -8,9 +9,9 @@ export const Articles = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        axios.get("https://robbies-articles-website.onrender.com/api/articles")
-        .then((response) => {
-            setArticles(response.data.articles)
+        getArticles()
+        .then((articles) => {
+            setArticles(articles)
             setIsLoading(false)
         })
         .catch((err) => {
