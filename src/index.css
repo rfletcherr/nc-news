@@ -85,3 +85,9 @@ button:focus-visible {
   width: 200px;
   margin: 3px;
 }
+
+.comment {
+  border: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}

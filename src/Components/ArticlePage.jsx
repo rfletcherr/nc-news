@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticlePage } from "../api";
+import { Link } from "react-router-dom";
 
 export const ArticlePage = () => {
     const [currentArticle, setCurrentArticle] = useState({})
@@ -13,7 +14,6 @@ export const ArticlePage = () => {
         getArticlePage(article_id)
         .then((response) => {
             const article = response.article[0];
-            console.log(article);
             setCurrentArticle(article)
             setIsLoading(false)
         })
@@ -29,8 +29,9 @@ export const ArticlePage = () => {
             <h3>{currentArticle.title}</h3>
             <p>{currentArticle.author}</p>
             <p>Topic: {currentArticle.topic}</p>
-            <p>Comments: {currentArticle.comment_count}</p>
             <p>Votes: {currentArticle.votes}</p>
+            <p>Comments: {currentArticle.comment_count}</p>
+            <Link to={`/articles/${currentArticle.article_id}/comments`}>View Comments</Link>
             </main>
         )
 }
