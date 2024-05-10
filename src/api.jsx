@@ -20,3 +20,14 @@ export const getComments = (article_id) => {
         return response.data.comments
     })
 }
+
+export const patchArticleVote = (article_id, newVote) => {
+    return axios.patch(`https://robbies-articles-website.onrender.com/api/articles/${article_id}`, { inc_votes: newVote })
+    .then((response) => {
+        console.log(response)
+        return response.data
+    })
+    .catch((error) => {
+        console.error(error)
+})
+}
